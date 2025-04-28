@@ -1,3 +1,4 @@
+# Must use Python Graphics!
 from browser import timer
 from random import choice
 
