@@ -25,10 +25,8 @@ def check_user_answer(country, guess):
     else:
         return False
 
-
-async def play():
-    print("You have 3 plays, guess the country based on the flag!")
-    for i in range(3):
+def guess_countries(num):
+    for i in range(num):
         random_country = choice(COUNTRIES)
         display_flag(random_country)
         guess = await async_input("What country has this flag? ")
@@ -37,5 +35,10 @@ async def play():
             print("You got it!")
         else:
             print("Better luck next time!")
+
+async def play():
+    print("You have 3 plays, guess the country based on the flag!")
+    guess_countries(3)
+
 
 aio.run(play())

@@ -14,6 +14,8 @@ def input_prices():
 
 # Totaling up all the prices
 def get_total(prices):
+    if type(prices) != list or len(prices) == 0:
+        raise ValueError("Invalid list of prices")
     total = 0
     for price in prices:
         total += price
