@@ -1,4 +1,4 @@
-# Must use Python Graphics!
+# Must use Python Graphics in CodeHS Sandbox!
 from browser import timer
 from random import choice
 
@@ -25,10 +25,11 @@ def check_user_answer(country, guess):
     else:
         return False
 
-def guess_countries(num):
+async def guess_countries(num):
     for i in range(num):
         random_country = choice(COUNTRIES)
         display_flag(random_country)
+        # ChatGPT wrote this line
         guess = await async_input("What country has this flag? ")
         isCorrect = check_user_answer(random_country, guess)
         if isCorrect:
@@ -36,9 +37,9 @@ def guess_countries(num):
         else:
             print("Better luck next time!")
 
+# Used ChatGPT to figure out CodeHS Python image loading with input
 async def play():
     print("You have 3 plays, guess the country based on the flag!")
-    guess_countries(3)
-
+    await guess_countries(3)
 
 aio.run(play())
